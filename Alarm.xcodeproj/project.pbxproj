@@ -15,6 +15,8 @@
 		E21FA8CC1CEA690000530C04 /* AlarmListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21FA8CB1CEA690000530C04 /* AlarmListTableViewController.swift */; };
 		E21FA8CE1CEA6B0F00530C04 /* AlarmDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21FA8CD1CEA6B0F00530C04 /* AlarmDetailTableViewController.swift */; };
 		E21FA8D11CEA6C8E00530C04 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21FA8D01CEA6C8E00530C04 /* SwitchTableViewCell.swift */; };
+		E21FA8D31CEA795200530C04 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21FA8D21CEA795200530C04 /* Alarm.swift */; };
+		E2EA79411CEA972300F8FCBA /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EA79401CEA972300F8FCBA /* AlarmController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		E21FA8CB1CEA690000530C04 /* AlarmListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewController.swift; sourceTree = "<group>"; };
 		E21FA8CD1CEA6B0F00530C04 /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
 		E21FA8D01CEA6C8E00530C04 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		E21FA8D21CEA795200530C04 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		E2EA79401CEA972300F8FCBA /* AlarmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				1A0FB77E1CDD4F07006808D9 /* AppDelegate.swift */,
 				1A0FB7821CDD4F07006808D9 /* Main.storyboard */,
 				E21FA8D01CEA6C8E00530C04 /* SwitchTableViewCell.swift */,
+				E21FA8D21CEA795200530C04 /* Alarm.swift */,
+				E2EA79401CEA972300F8FCBA /* AlarmController.swift */,
 				E21FA8CF1CEA6B2200530C04 /* Views */,
 				1A0FB7BE1CE19229006808D9 /* DateHelper.swift */,
 				1A0FB7851CDD4F07006808D9 /* Assets.xcassets */,
@@ -157,6 +163,8 @@
 				E21FA8D11CEA6C8E00530C04 /* SwitchTableViewCell.swift in Sources */,
 				E21FA8CE1CEA6B0F00530C04 /* AlarmDetailTableViewController.swift in Sources */,
 				1A0FB7BF1CE19229006808D9 /* DateHelper.swift in Sources */,
+				E21FA8D31CEA795200530C04 /* Alarm.swift in Sources */,
+				E2EA79411CEA972300F8FCBA /* AlarmController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

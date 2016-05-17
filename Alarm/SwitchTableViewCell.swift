@@ -9,6 +9,23 @@
 import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
+    
+    
+    //MARK: - IBOutlets
+    
+    @IBOutlet weak var switchButton: UISwitch!
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    //MARK: - IBActions
+    
+    @IBAction func switchValueChanged(sender: AnyObject) {
+    }
+    
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
