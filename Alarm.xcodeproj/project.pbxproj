@@ -64,13 +64,13 @@
 		1A0FB77D1CDD4F07006808D9 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				1A0FB77E1CDD4F07006808D9 /* AppDelegate.swift */,
+				E21FA8CF1CEA6B2200530C04 /* View Controller */,
+				E2CC476F1CEBD6AA0031722B /* View */,
+				E2CC476E1CEBD69C0031722B /* Controller */,
+				E2CC476D1CEBD68F0031722B /* Model Object */,
 				1A0FB7821CDD4F07006808D9 /* Main.storyboard */,
-				E21FA8D01CEA6C8E00530C04 /* SwitchTableViewCell.swift */,
-				E21FA8D21CEA795200530C04 /* Alarm.swift */,
-				E2EA79401CEA972300F8FCBA /* AlarmController.swift */,
-				E21FA8CF1CEA6B2200530C04 /* Views */,
 				1A0FB7BE1CE19229006808D9 /* DateHelper.swift */,
+				1A0FB77E1CDD4F07006808D9 /* AppDelegate.swift */,
 				1A0FB7851CDD4F07006808D9 /* Assets.xcassets */,
 				1A0FB7871CDD4F07006808D9 /* LaunchScreen.storyboard */,
 				1A0FB78A1CDD4F07006808D9 /* Info.plist */,
@@ -78,13 +78,37 @@
 			path = Alarm;
 			sourceTree = "<group>";
 		};
-		E21FA8CF1CEA6B2200530C04 /* Views */ = {
+		E21FA8CF1CEA6B2200530C04 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				E21FA8CD1CEA6B0F00530C04 /* AlarmDetailTableViewController.swift */,
 				E21FA8CB1CEA690000530C04 /* AlarmListTableViewController.swift */,
 			);
-			name = Views;
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		E2CC476D1CEBD68F0031722B /* Model Object */ = {
+			isa = PBXGroup;
+			children = (
+				E21FA8D21CEA795200530C04 /* Alarm.swift */,
+			);
+			name = "Model Object";
+			sourceTree = "<group>";
+		};
+		E2CC476E1CEBD69C0031722B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2EA79401CEA972300F8FCBA /* AlarmController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E2CC476F1CEBD6AA0031722B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E21FA8D01CEA6C8E00530C04 /* SwitchTableViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

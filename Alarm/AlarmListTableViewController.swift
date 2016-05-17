@@ -8,9 +8,8 @@
 
 import UIKit
 
-class AlarmListTableViewController: UITableViewController {
+class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDelegate {
     
-
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -20,6 +19,13 @@ class AlarmListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
+        guard let indexpath = tableView.indexPathForCell(cell) else {
+            return
+        }
+        let alarm = AlarmController.sharedInstance.alarms[indexpath.row]
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,33 +37,27 @@ class AlarmListTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return AlarmController.sharedInstance.alarms.count
     }
 
-    /*
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as? SwitchTableViewCell
 
         // Configure the cell...
-
-        return cell
+        let alarm = AlarmController.sharedInstance.alarms[indexPath.row]
+        cell?.updateWithAlarm(alarm)
+        cell?.delegate = self
+        return cell ?? UITableViewCell()
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    /*
+
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -65,10 +65,13 @@ class AlarmListTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            let alarm = AlarmController.sharedInstance.alarms[indexPath.row]
+            AlarmController.sharedInstance.deleteAlarm(alarm)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+
         }    
     }
-    */
-
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {

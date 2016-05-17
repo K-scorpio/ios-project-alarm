@@ -22,25 +22,36 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5N-IG-Thc">
-                                            <rect key="frame" x="8" y="40" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdW-sF-f7f">
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdW-sF-f7f">
                                             <rect key="frame" x="543" y="19" width="51" height="31"/>
                                             <connections>
                                                 <action selector="switchValueChanged:" destination="bJB-D6-jQS" eventType="valueChanged" id="kbF-tQ-OHu"/>
                                             </connections>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbu-20-gQA">
-                                            <rect key="frame" x="8" y="8" width="67" height="33"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbu-20-gQA">
+                                            <rect key="frame" x="8" y="8" width="154" height="29"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="154" id="dn1-4e-EUV"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5N-IG-Thc">
+                                            <rect key="frame" x="16" y="40" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="A5N-IG-Thc" firstAttribute="leading" secondItem="0rg-ez-1Yt" secondAttribute="leadingMargin" constant="8" id="67c-KM-Z7i"/>
+                                        <constraint firstItem="hbu-20-gQA" firstAttribute="top" secondItem="0rg-ez-1Yt" secondAttribute="top" constant="8" id="AZ8-9U-fV8"/>
+                                        <constraint firstItem="hbu-20-gQA" firstAttribute="leading" secondItem="0rg-ez-1Yt" secondAttribute="leading" constant="8" id="L8h-Ar-Z6x"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="A5N-IG-Thc" secondAttribute="bottom" constant="1" id="Rsl-ZG-tpP"/>
+                                        <constraint firstItem="cdW-sF-f7f" firstAttribute="trailing" secondItem="0rg-ez-1Yt" secondAttribute="trailingMargin" id="XbH-zz-6oL"/>
+                                        <constraint firstItem="cdW-sF-f7f" firstAttribute="centerY" secondItem="0rg-ez-1Yt" secondAttribute="centerY" id="tsa-9A-Du1"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="A5N-IG-Thc" id="gBp-BM-r86"/>
