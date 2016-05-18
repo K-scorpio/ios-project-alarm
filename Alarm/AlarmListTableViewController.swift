@@ -21,11 +21,18 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func switchCellSwitchValueChanged(cell: SwitchTableViewCell) {
-        guard let indexpath = tableView.indexPathForCell(cell) else {
+        guard let indexPath = tableView.indexPathForCell(cell) else {
             return
         }
-        let alarm = AlarmController.sharedInstance.alarms[indexpath.row]
+        let alarm = AlarmController.sharedInstance.alarms[indexPath.row]
+        AlarmController.sharedInstance.toggleEnabled(alarm)
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,10 +42,6 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -62,8 +65,6 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             let alarm = AlarmController.sharedInstance.alarms[indexPath.row]
             AlarmController.sharedInstance.deleteAlarm(alarm)
@@ -71,30 +72,23 @@ class AlarmListTableViewController: UITableViewController, SwitchTableViewCellDe
 
         }    
     }
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toAlarmDetail" {
+            if let alarmDetailVC = segue.destinationViewController as? AlarmDetailTableViewController {
+                if let alarmCell = sender as? UITableViewCell {
+                    if let indexPath = tableView.indexPathForCell(alarmCell) {
+                        alarmDetailVC.alarm = AlarmController.sharedInstance.alarms[indexPath.row]
+                    }
+                }
+            }
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

@@ -10,31 +10,47 @@ import UIKit
 
 class AlarmDetailTableViewController: UITableViewController {
     
+    var alarm: Alarm?
+    
     //MARK: - IBOutlets
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var alarmTitleText: UIView!
+    @IBOutlet weak var alarmTitleText: UITextField!
+
     
     @IBOutlet weak var enableButton: UIButton!
     
     //MARK: - IBActions
     
     @IBAction func enableButtonTapped(sender: AnyObject) {
+        guard let alarm = alarm else {
+            return
+        }
+        AlarmController.sharedInstance.toggleEnabled(alarm)
     }
 
     @IBAction func saveButtonTapped(sender: AnyObject) {
+        guard let title = alarmTitleText.text,
+            thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {return}
+        let timeIntervalSinceMidnight = datePicker.date.timeIntervalSinceDate(thisMorningAtMidnight)
+        if let alarm = alarm {
+            AlarmController.sharedInstance.updateAlarm(alarm, fireTimeFromMidnight: timeIntervalSinceMidnight, name: title)
+        } else {
+            let alarm = AlarmController.sharedInstance.addAlarm(timeIntervalSinceMidnight, name: title)
+            self.alarm = alarm
+        }
+        self.navigationController?.popViewControllerAnimated(true)
+        
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if let alarm = alarm {
+            updateWithAlarm(alarm)
+        }
+        setupView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,15 +60,37 @@ class AlarmDetailTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    func updateWithAlarm(alarm: Alarm) {
+        guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {
+            return
+        }
+        datePicker.setDate(NSDate(timeInterval: alarm.fireTimeFromMidnight, sinceDate: thisMorningAtMidnight), animated: false)
+        alarmTitleText.text = alarm.name
+        
     }
+    
+    func setupView() {
+        if alarm == nil {
+            enableButton.hidden = true
+        } else {
+            enableButton.hidden = false
+            if alarm?.enabled == true {
+                enableButton.backgroundColor = UIColor.redColor()
+                enableButton.setTitleColor(.whiteColor(), forState: .Normal)
+                enableButton.setTitle("Disable", forState: .Normal)
+            } else {
+                enableButton.backgroundColor = UIColor.grayColor()
+                enableButton.setTitleColor(.whiteColor(), forState: .Normal)
+                enableButton.setTitle("Enable", forState: .Normal)
+                
+            }
+        }
+            
+        }
+    }
+    
+    
 
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -109,4 +147,3 @@ class AlarmDetailTableViewController: UITableViewController {
     }
     */
 
-}

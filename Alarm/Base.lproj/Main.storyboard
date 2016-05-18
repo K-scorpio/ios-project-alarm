@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJB-D6-jQS" id="0rg-ez-1Yt">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdW-sF-f7f">
@@ -57,7 +57,7 @@
                                     <outlet property="nameLabel" destination="A5N-IG-Thc" id="gBp-BM-r86"/>
                                     <outlet property="switchButton" destination="cdW-sF-f7f" id="etI-hi-GZ6"/>
                                     <outlet property="timeLabel" destination="hbu-20-gQA" id="ljO-IZ-jYi"/>
-                                    <segue destination="Aiv-uq-9yh" kind="show" id="nxy-Ou-fAF"/>
+                                    <segue destination="Aiv-uq-9yh" kind="show" identifier="toAlarmDetail" id="nxy-Ou-fAF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" id="5av-pY-BLt">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Oql-MO-8Fh">
                             <connections>
-                                <segue destination="Aiv-uq-9yh" kind="show" id="nk7-hT-3pJ"/>
+                                <segue destination="Aiv-uq-9yh" kind="show" identifier="toNewAlarm" id="nk7-hT-3pJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -93,7 +93,7 @@
                                         <rect key="frame" x="0.0" y="99" width="600" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RCl-2h-r1d" id="Ltv-G1-ZHl">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="231.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="232"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="v8k-bK-vSC">
@@ -118,18 +118,20 @@
                                         <rect key="frame" x="0.0" y="367" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mlG-qb-EzN" id="efi-W9-hVD">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="alarm name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sHg-UP-QEd">
-                                                    <rect key="frame" x="8" y="7" width="97" height="30"/>
+                                                    <rect key="frame" x="5" y="5" width="590" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sHg-UP-QEd" firstAttribute="centerY" secondItem="efi-W9-hVD" secondAttribute="centerY" id="BHp-Eq-BnB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="sHg-UP-QEd" secondAttribute="trailing" constant="487" id="JRc-SJ-ArY"/>
+                                                <constraint firstItem="sHg-UP-QEd" firstAttribute="leading" secondItem="efi-W9-hVD" secondAttribute="leadingMargin" constant="-3" id="8SF-Og-gWQ"/>
+                                                <constraint firstItem="sHg-UP-QEd" firstAttribute="top" secondItem="efi-W9-hVD" secondAttribute="topMargin" constant="-3" id="Tnp-jJ-cgk"/>
+                                                <constraint firstItem="sHg-UP-QEd" firstAttribute="centerX" secondItem="efi-W9-hVD" secondAttribute="centerX" id="imr-ba-GcA"/>
+                                                <constraint firstItem="sHg-UP-QEd" firstAttribute="centerY" secondItem="efi-W9-hVD" secondAttribute="centerY" id="nTg-zg-RI4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -141,20 +143,30 @@
                                         <rect key="frame" x="0.0" y="447" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rcN-bM-Tfd" id="hFP-zE-hvl">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKN-6V-6Jt">
-                                                    <rect key="frame" x="276.5" y="7" width="47" height="30"/>
+                                                    <rect key="frame" x="8" y="7" width="584" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <state key="normal" title="Enable"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="enableButtonTapped:" destination="Aiv-uq-9yh" eventType="touchUpInside" id="Eii-Rm-14a"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bKN-6V-6Jt" firstAttribute="centerX" secondItem="hFP-zE-hvl" secondAttribute="centerX" id="26e-dW-f2k"/>
-                                                <constraint firstItem="bKN-6V-6Jt" firstAttribute="centerY" secondItem="hFP-zE-hvl" secondAttribute="centerY" id="zGb-8P-4ox"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bKN-6V-6Jt" secondAttribute="bottom" constant="-1" id="0jj-hj-bdt"/>
+                                                <constraint firstItem="bKN-6V-6Jt" firstAttribute="trailing" secondItem="hFP-zE-hvl" secondAttribute="trailingMargin" id="AaH-Bz-c8j"/>
+                                                <constraint firstItem="bKN-6V-6Jt" firstAttribute="top" secondItem="hFP-zE-hvl" secondAttribute="topMargin" constant="-1" id="OQs-b5-yXY"/>
+                                                <constraint firstItem="bKN-6V-6Jt" firstAttribute="top" secondItem="hFP-zE-hvl" secondAttribute="topMargin" constant="-1" id="d5S-yB-XqP"/>
+                                                <constraint firstItem="bKN-6V-6Jt" firstAttribute="leading" secondItem="hFP-zE-hvl" secondAttribute="leadingMargin" id="s34-bY-mDF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bKN-6V-6Jt" secondAttribute="bottom" constant="-1" id="yHl-5S-atQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -174,7 +186,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alarmTitleText" destination="efi-W9-hVD" id="m0D-bU-nko"/>
+                        <outlet property="alarmTitleText" destination="sHg-UP-QEd" id="h8I-z3-Sbv"/>
                         <outlet property="datePicker" destination="v8k-bK-vSC" id="Ijc-ae-E4m"/>
                         <outlet property="enableButton" destination="bKN-6V-6Jt" id="rG1-T3-NX2"/>
                     </connections>

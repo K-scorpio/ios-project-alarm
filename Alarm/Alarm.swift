@@ -27,16 +27,19 @@ class Alarm: Equatable {
     var fireTimeAsString: String {
         
         let fireTimeFromMidnight = Int(self.fireTimeFromMidnight)
-        let hours = (fireTimeFromMidnight/60)/60
+        var hours = (fireTimeFromMidnight/60)/60
         let minutes = (fireTimeFromMidnight - (hours*60*60))/60
         if hours >= 13 {
             return String(format: "%2d: %2d PM", arguments: [hours - 12, minutes])
             } else if hours >= 12 {
                 return String(format: "%2d:%02d PM", argumetns: [hours, minutes])
-            } else {
-                return String(format: "%2d:%02d AM", arguments: [hours, minutes])
+        } else {
+            if hours == 0 {
+                hours = 12
             }
+            return String(format: "%2d:%02d AM", arguments: [hours, minutes])
         }
+    }
 
 
     init(fireTimeFromMidnight: NSTimeInterval, name: String, enabled: Bool = true, uuid: String = NSUUID().UUIDString) {

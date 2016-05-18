@@ -37,7 +37,7 @@ class AlarmController {
         alarms.removeAtIndex(indexOfAlarm)
     }
     
-    func toggleSwitch(alarm: Alarm) {
+    func toggleEnabled(alarm: Alarm) {
         alarm.enabled = !alarm.enabled
     }
     

@@ -10,7 +10,8 @@ import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
     
-    var delegate: SwitchTableViewCellDelegate?
+    weak var delegate: SwitchTableViewCellDelegate?
+    
     
     
     //MARK: - IBOutlets
@@ -24,7 +25,7 @@ class SwitchTableViewCell: UITableViewCell {
     //MARK: - IBActions
     
     @IBAction func switchValueChanged(sender: AnyObject) {
-        
+        delegate?.switchCellSwitchValueChanged(self)
     }
     
         // Configure the view for the selected state
