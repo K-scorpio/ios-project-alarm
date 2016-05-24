@@ -64,3 +64,52 @@ class AlarmController {
     }
 }
 
+protocol AlarmScheduler: class {
+    func scheduleLocalNotification(alarm: Alarm)
+    func cancelLocalNotification(alarm: Alarm)
+}
+
+extension AlarmScheduler {
+    func scheduleLocalNotification(alarm: Alarm) {
+        guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {
+            return
+        }
+        let localNotification = UILocalNotification()
+        localNotification.alertTitle = "Alarm"
+        localNotification.alertBody = "git back to wrk nw"
+        localNotification.category = alarm.uuid
+        localNotification.fireDate = NSDate(timeInterval: alarm.fireTimeFromMidnight, sinceDate: thisMorningAtMidnight)
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+    func cancelLocalNotification(alarm: Alarm) {
+        guard let notification = UIApplication.sharedApplication().scheduledLocalNotifications else {
+            return
+        }
+        let filteredNotification = notification.filter({$0.category == alarm.uuid})
+        
+        UIApplication.sharedApplication().cancelLocalNotification
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
