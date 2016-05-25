@@ -87,8 +87,10 @@ extension AlarmScheduler {
             return
         }
         let filteredNotification = notification.filter({$0.category == alarm.uuid})
-        
-        UIApplication.sharedApplication().cancelLocalNotification
+        guard let alarmNotification = filteredNotification.last else {
+            return
+        }
+        UIApplication.sharedApplication().cancelLocalNotification(alarmNotification)
     }
 }
 
